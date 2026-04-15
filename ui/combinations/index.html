@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Combination Lab | Damon's LLM Wiki</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Damon's Multi-Niche LLM Wiki</p>
+          <h1>Combination Lab</h1>
+          <p class="hero-copy">
+            Pick two stable canonical pages, generate a speculative synthesis, and save the result as a draft without touching the canonical wiki.
+          </p>
+          <p style="margin-top:10px"><a href="/craft" style="color:#315d78;font-weight:700;font-size:0.88rem">Try the Atom Canvas -></a> <span style="color:#667064;font-size:0.82rem">Drag-and-combine visual mode</span></p>
+        </div>
+        <div class="truth-card">
+          <span class="badge canonical">canonical input</span>
+          <span class="arrow">+</span>
+          <span class="badge canonical">canonical input</span>
+          <span class="arrow">-></span>
+          <span class="badge draft">draft synthesis</span>
+          <span class="arrow">-></span>
+          <span class="badge promoted">promoted item</span>
+        </div>
+      </section>
+
+      <section class="picker-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Option B workflow</p>
+            <h2>Choose Two Canonical Concepts</h2>
+          </div>
+          <span id="conceptCount" class="count-pill">Loading concepts...</span>
+        </div>
+
+        <div class="filters">
+          <label>
+            Search
+            <input id="searchInput" type="search" placeholder="agentic AI, monopoly, TVL..." />
+          </label>
+          <label>
+            Niche
+            <select id="nicheFilter"></select>
+          </label>
+          <label>
+            Type
+            <select id="typeFilter"></select>
+          </label>
+          <label>
+            Tag
+            <select id="tagFilter"></select>
+          </label>
+          <label>
+            Status
+            <select id="statusFilter"></select>
+          </label>
+        </div>
+
+        <div id="emptyState" class="empty-state" hidden>
+          <h3>Start with two existing pages.</h3>
+          <p>Combination drafts are made by pairing canonical wiki pages. Search or filter the list, choose a left and right concept, then generate a speculative synthesis.</p>
+        </div>
+
+        <div id="conceptList" class="concept-list"></div>
+      </section>
+
+      <section class="workspace">
+        <div class="selected-grid">
+          <article id="leftSelection" class="selected-card muted">
+            <span class="badge canonical">left canonical</span>
+            <h3>No left concept selected</h3>
+            <p>Choose a page from the list.</p>
+          </article>
+          <article id="rightSelection" class="selected-card muted">
+            <span class="badge canonical">right canonical</span>
+            <h3>No right concept selected</h3>
+            <p>Choose a second page from the list.</p>
+          </article>
+        </div>
+
+        <aside id="pairingInsight" class="insight-card">
+          <span class="badge draft">speculative pairing</span>
+          <h3>Why this pairing is interesting</h3>
+          <p>Select two canonical concepts to see the overlap signal.</p>
+        </aside>
+
+        <div class="actions">
+          <button id="generateButton" class="primary" disabled>Combine and Save Draft</button>
+          <button id="regenerateButton" disabled>Regenerate</button>
+          <button id="copyButton" disabled>Copy Markdown</button>
+          <button id="saveButton" disabled>Save as Draft</button>
+          <button id="openDraftButton" disabled>Open Draft</button>
+          <button id="submitButton" disabled>Submit for Promotion</button>
+        </div>
+
+        <div id="statusMessage" class="status-message" role="status"></div>
+        <section id="resultView" class="result-view" hidden></section>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

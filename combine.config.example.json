@@ -1,0 +1,62 @@
+{
+  "_comment": "Copy this file to combine.config.json. If combine_provider.type is omitted, wiki-combine auto-detects Cursor Agent, then OPENAI_API_KEY, then ANTHROPIC_API_KEY.",
+  "combine_provider": {
+    "_comment": "Use one provider. Supported types: external-command, openai, anthropic, local-model.",
+    "type": "external-command",
+    "command": "python ./cursor_combine_provider.py",
+    "timeout_seconds": 300
+  },
+  "pair_scoring": {
+    "_comment": "Low pair scores can warn or block before synthesis.",
+    "score_threshold": 0.25,
+    "block_low_score": false
+  },
+  "semantic_gate": {
+    "_comment": "Reject always blocks. needs_revision can be allow or block.",
+    "needs_revision_behavior": "allow",
+    "save_diagnostics": false
+  },
+  "cache": {
+    "_comment": "Cache keys include parent hashes, prompt/provider/config versions, and model settings.",
+    "enabled": true
+  },
+  "provider_presets": {
+    "external_command": {
+      "combine_provider": {
+        "type": "external-command",
+        "command": "my-agent-wrapper combine",
+        "timeout_seconds": 180
+      }
+    },
+    "openai": {
+      "combine_provider": {
+        "type": "openai",
+        "model": "gpt-4.1-mini",
+        "api_key_env": "OPENAI_API_KEY",
+        "timeout_seconds": 180
+      }
+    },
+    "anthropic": {
+      "combine_provider": {
+        "type": "anthropic",
+        "model": "claude-3-5-sonnet-latest",
+        "api_key_env": "ANTHROPIC_API_KEY",
+        "timeout_seconds": 180
+      }
+    },
+    "local_model_openai_compatible": {
+      "combine_provider": {
+        "type": "local-model",
+        "endpoint": "http://127.0.0.1:11434/v1/chat/completions",
+        "model": "local-combine",
+        "timeout_seconds": 180
+      }
+    },
+    "dry_run_no_llm": {
+      "combine_provider": {
+        "type": "local-model",
+        "timeout_seconds": 180
+      }
+    }
+  }
+}

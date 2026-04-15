@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Atom Canvas | Damon's LLM Wiki</title>
+    <link rel="stylesheet" href="/static/canvas-styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-left">
+        <div>
+          <p class="eyebrow">Damon's Multi-Niche LLM Wiki</p>
+          <h1>Atom Canvas</h1>
+        </div>
+        <div class="topbar-status">
+          <span class="status-dot"></span>
+          <span>Local Cursor synthesis</span>
+        </div>
+      </div>
+      <nav class="topbar-nav">
+        <a href="/combinations" class="nav-link">Option B Workflow</a>
+        <span class="nav-sep">/</span>
+        <span class="nav-current">Atom Canvas</span>
+        <button id="darkToggle" class="dark-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">☀️</button>
+      </nav>
+    </header>
+
+    <main class="canvas-shell">
+      <!-- Left: Atom Library -->
+      <aside class="library-panel" id="libraryPanel" aria-label="Canonical atom library">
+        <div class="library-header">
+          <div>
+            <p class="panel-kicker">Canonical Library</p>
+            <h2>Idea Atoms</h2>
+          </div>
+          <span id="atomCount" class="count-pill">…</span>
+        </div>
+        <div class="library-filters">
+          <input id="libSearch" type="search" placeholder="Search concepts…" />
+          <div class="filter-row">
+            <select id="libNiche"><option value="">All niches</option></select>
+            <select id="libType"><option value="">All types</option></select>
+          </div>
+          <div class="filter-row">
+            <select id="libTag"><option value="">All tags</option></select>
+            <select id="libStatus"><option value="">All statuses</option></select>
+          </div>
+        </div>
+        <div id="atomList" class="atom-list"></div>
+      </aside>
+
+      <!-- Center: Canvas -->
+      <section class="canvas-viewport" id="canvasViewport" aria-label="Composition canvas">
+        <div class="canvas-chrome">
+          <div>
+            <p class="panel-kicker">Composition Field</p>
+            <h2>Drag canonical atoms together</h2>
+          </div>
+          <div class="truth-legend">
+            <span class="truth-pill canonical">canonical</span>
+            <span class="truth-pill draft">draft</span>
+            <span class="truth-pill pending">pending</span>
+          </div>
+        </div>
+        <div class="canvas-surface" id="canvasSurface">
+          <div class="canvas-empty" id="canvasEmpty">
+            <div class="canvas-empty-icon">⚛</div>
+            <p>Drag idea atoms from the library onto this canvas.</p>
+            <p class="canvas-empty-hint">Drop two atoms on top of each other to combine them.</p>
+          </div>
+        </div>
+        <div class="fusion-overlay" id="fusionOverlay" hidden>
+          <div class="fusion-ring"></div>
+          <div class="fusion-core"></div>
+          <div class="fusion-label">
+            <span>Combining</span>
+            <strong id="fusionPairLabel">Canonical atoms</strong>
+          </div>
+        </div>
+        <div class="combine-toast" id="combineToast" hidden role="status" aria-live="polite" aria-atomic="true">
+          <span class="toast-icon" aria-hidden="true"></span>
+          <span id="combineToastText">Combining…</span>
+        </div>
+      </section>
+
+      <!-- Right: Inspector -->
+      <aside class="inspector-panel" id="inspectorPanel" aria-label="Atom inspector" aria-live="polite">
+        <div class="inspector-empty" id="inspectorEmpty">
+          <p class="panel-kicker">Inspector</p>
+          <h3>No atom selected</h3>
+          <p>Click a canonical atom or generated draft to inspect lineage, quality signals, and promotion actions.</p>
+        </div>
+        <div class="inspector-content" id="inspectorContent" hidden></div>
+      </aside>
+    </main>
+
+    <script src="/static/canvas-app.js"></script>
+  </body>
+</html>

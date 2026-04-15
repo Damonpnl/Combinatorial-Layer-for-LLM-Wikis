@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# User wiki content and local working data should not be committed to the reusable layer.
+wiki/
+raw/
+Outputs/
+Clippings/
+.obsidian/
+debug.log
+combine.config.json
