@@ -168,6 +168,31 @@ wiki-combine --json ai/rag biohacking/default-mode-network
 
 ---
 
+## Local Web UI
+
+The CLI is the primary interface, but the repo also includes a local web UI for browsing canonical pages and creating combination drafts.
+
+Run:
+
+```bash
+python combination_web.py
+```
+
+Then open:
+
+- `http://127.0.0.1:8765/combinations` for the Combination Lab
+- `http://127.0.0.1:8765/craft` for the Atom Canvas view
+
+You can also choose a host or port:
+
+```bash
+python combination_web.py --host 127.0.0.1 --port 8765
+```
+
+The UI uses the same `CombinationService` as the CLI. It does not let providers write files directly, and generated drafts still go through the same deterministic validation, semantic gate, rendering, and write path.
+
+---
+
 ## Provider Model
 
 The project is provider-pluggable.
