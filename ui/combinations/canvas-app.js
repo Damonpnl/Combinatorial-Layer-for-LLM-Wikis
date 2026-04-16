@@ -631,15 +631,23 @@ function openAtomPage(atom) {
 
 function renderInspector() {
   const atom = state.canvasAtoms.find((a) => a.id === state.selectedAtomId);
+  const hasSelection = Boolean(atom);
+  el.inspectorPanel.classList.toggle("open", hasSelection);
+  el.inspectorPanel.classList.toggle("has-selection", hasSelection);
+  el.inspectorPanel.setAttribute("aria-busy", "false");
 
   if (!atom) {
     el.inspectorEmpty.hidden = false;
+    el.inspectorEmpty.setAttribute("aria-hidden", "false");
     el.inspectorContent.hidden = true;
+    el.inspectorContent.setAttribute("aria-hidden", "true");
     return;
   }
 
   el.inspectorEmpty.hidden = true;
+  el.inspectorEmpty.setAttribute("aria-hidden", "true");
   el.inspectorContent.hidden = false;
+  el.inspectorContent.setAttribute("aria-hidden", "false");
 
   if (atom.kind === "canonical") {
     renderCanonicalInspector(atom);

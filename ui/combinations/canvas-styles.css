@@ -800,6 +800,11 @@ body::before {
   gap: 8px;
 }
 
+.inspector-empty[hidden],
+.inspector-content[hidden] {
+  display: none;
+}
+
 .inspector-empty p.panel-kicker {
   color: var(--gold);
 }
