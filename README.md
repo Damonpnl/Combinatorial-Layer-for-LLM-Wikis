@@ -465,4 +465,4 @@ Do not trade rigor for novelty.
 
 ## License
 
-Add your preferred license here.
+MIT License
