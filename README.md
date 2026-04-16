@@ -181,7 +181,7 @@ python combination_web.py
 Then open:
 
 - `http://127.0.0.1:8765/combinations` for the Combination Lab
-- `http://127.0.0.1:8765/craft` for the Atom Canvas view
+- `http://127.0.0.1:8765/craft` for the Atom Canvas view <- use this
 
 You can also choose a host or port:
 
