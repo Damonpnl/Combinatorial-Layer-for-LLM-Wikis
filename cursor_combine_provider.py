@@ -34,7 +34,7 @@ def build_cursor_command() -> list[str]:
     workspace = os.getenv("CURSOR_AGENT_WORKSPACE", str(Path.cwd()))
     wsl_distro = os.getenv("CURSOR_AGENT_WSL_DISTRO", "Ubuntu")
     if not binary and shutil.which("wsl"):
-        binary = os.getenv("CURSOR_AGENT_WSL_BIN", "/home/owner/.local/bin/cursor-agent")
+        binary = os.getenv("CURSOR_AGENT_WSL_BIN", "cursor-agent")
         workspace = windows_path_to_wsl(Path(workspace))
         command = ["wsl", "-d", wsl_distro, "--", binary]
     elif binary:

@@ -520,7 +520,7 @@ class CombinationService:
         }
 
     def build_generation_prompt(self, parent_a: WikiPage, parent_b: WikiPage) -> str:
-        return f"""Generate a speculative combination draft for Damon's Multi-Niche LLM Wiki.
+        return f"""Generate a speculative combination draft for a structured markdown LLM Wiki.
 
 Rules:
 - Use only the two canonical parent pages as primary grounding.

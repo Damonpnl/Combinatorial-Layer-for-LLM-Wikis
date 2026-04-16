@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Filesystem-first combination game utilities for Damon's LLM Wiki.
+"""Filesystem-first combination game utilities for a markdown LLM Wiki.
 
 This script intentionally avoids databases and external packages. Canonical
 wiki pages remain the source of truth; generated combinations are draft files.
@@ -450,7 +450,7 @@ def command_reject(args: argparse.Namespace) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Combination draft utilities for Damon's LLM Wiki.")
+    parser = argparse.ArgumentParser(description="Combination draft utilities for a markdown LLM Wiki.")
     subcommands = parser.add_subparsers(dest="command", required=True)
 
     list_parser = subcommands.add_parser("list", help="Enumerate canonical wiki pages.")
